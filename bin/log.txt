@@ -1,0 +1,23 @@
+-I first wanted to better understand how this little application was set up.
+-I followed the instructions in the markdown to set it up and run it.
+-To create a scalable implementation the first step is communication,
+ which in this case Express will handle our http calls just fine.
+-We need some storage for this api to scale that amount of calls and with the amount of calls we will potentially receive ~1m, 
+ mongodb will be able to handle this and allow our post call to scale.
+
+ -I chose to install mongoose to access the mongodb instance.
+ -I turned the usage api into a restful api which include error catching
+ -I removed the console.log as in a production environment we should use debug, console
+ can hinder performance.
+
+
+ Future implementations
+ -Debugging for production
+ -Build this application on a cloud server such as AWS to have the ability to launch servers on demand for scalability
+ -Nginx on the servers to implement a solid load balancer, especially once more CRUD operations
+ become nessecary in the api.
+ -Depending on the addition of get operations we could certainly look into caching to take the load
+ away and allow the database to keep up.
+ -Depending on the need for a user to have immediate response from the app(Not sure how the app for
+ the inhaler works) we could implement a message queue to return the required information and queue up
+ what we don't need.
